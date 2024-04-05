@@ -19,13 +19,13 @@ class Gate;
 class Wire
 {
 public:
-    Wire(int value = 0, string name = "", vector<Gate *> drives = {}, int index = 0, vector<string> history = {});
+    Wire(char value = 'X', string name = "", vector<Gate *> drives = {}, int index = 0, vector<string> history = {});
     void setValue(int value);
     void setName(string name);
     void setDrives(vector<Gate *> drives);
     void setIndex(int index);
     void setHistory(vector<string> history);
-    int getValue() const;
+    char getValue() const;
     string getName() const;
     vector<Gate *> getDrives() const;
     int getIndex() const;
@@ -33,7 +33,7 @@ public:
     void printHistory() const;
 
 private:
-    int value;
+    char value;
     string name;
     vector<Gate *> drives;
     int index;

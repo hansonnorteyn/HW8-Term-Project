@@ -30,5 +30,6 @@ public:
     Wire *getInput1() const;
     Wire *getInput2() const;
     Wire *getOutput() const;
-    int evaluate() const;
+    char evaluate() const;
+
 };

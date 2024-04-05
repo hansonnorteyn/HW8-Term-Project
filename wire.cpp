@@ -15,7 +15,7 @@
 #include "wire.h"
 using namespace std;
 
-Wire::Wire(int value, string name, vector<Gate *> drives, int index, vector<string> history)
+Wire::Wire(char value, string name, vector<Gate *> drives, int index, vector<string> history)
 {
     this->value = value;
     this->name = name;
@@ -49,7 +49,7 @@ void Wire::setHistory(vector<string> history)
     this->history = history;
 }
 
-int Wire::getValue() const
+char Wire::getValue() const
 {
     return value;
 }
