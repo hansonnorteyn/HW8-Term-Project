@@ -1,12 +1,12 @@
 /*********************************************************
-* Summary: This files contains the implementation of the wire class
-*
-* Authors: Daniel Dukundane and Nii Noi 
-* Created: Apr 2024
-*
-* ©Copyright Cedarville University, its Computer Science faculty, and the
-* authors. All rights reserved.
-********************************************************/
+ * Summary: This files contains the implementation of the wire class
+ *
+ * Authors: Daniel Dukundane and Nii Noi
+ * Created: Apr 2024
+ *
+ * ©Copyright Cedarville University, its Computer Science faculty, and the
+ * authors. All rights reserved.
+ ********************************************************/
 
 #include <iostream>
 #include <vector>
@@ -15,7 +15,8 @@
 #include "wire.h"
 using namespace std;
 
-Wire::Wire(int value, string name, vector<Gate*> drives, int index, vector<string> history) {
+Wire::Wire(int value, string name, vector<Gate *> drives, int index, vector<string> history)
+{
     this->value = value;
     this->name = name;
     this->drives = drives;
@@ -23,49 +24,60 @@ Wire::Wire(int value, string name, vector<Gate*> drives, int index, vector<strin
     this->history = history;
 };
 
-void Wire::setValue(int value) {
+void Wire::setValue(int value)
+{
     this->value = value;
 }
 
-void Wire::setName(string name) {
+void Wire::setName(string name)
+{
     this->name = name;
 }
 
-void Wire::setDrives(vector<Gate*> drives) {
+void Wire::setDrives(vector<Gate *> drives)
+{
     this->drives = drives;
 }
 
-void Wire::setIndex(int index) {
+void Wire::setIndex(int index)
+{
     this->index = index;
 }
 
-void Wire::setHistory(vector<string> history) {
+void Wire::setHistory(vector<string> history)
+{
     this->history = history;
 }
 
-int Wire::getValue() const {
+int Wire::getValue() const
+{
     return value;
 }
 
-string Wire::getName() const {
+string Wire::getName() const
+{
     return name;
 }
 
-vector<Gate*> Wire::getDrives() const {
+vector<Gate *> Wire::getDrives() const
+{
     return drives;
 }
 
-int Wire::getIndex() const {
+int Wire::getIndex() const
+{
     return index;
 }
 
-vector<string> Wire::getHistory() const {
+vector<string> Wire::getHistory() const
+{
     return history;
 }
 
-void Wire::printHistory() const {
-    for (string s : history) {
+void Wire::printHistory() const
+{
+    for (string s : history)
+    {
         cout << s << endl;
     }
 }
-
