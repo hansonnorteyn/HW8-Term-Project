@@ -1,28 +1,20 @@
+/*********************************************************
+* Summary: This is the header file for the Wire class
+*
+* Authors: Daniel Dukundane and Nii Noi 
+* Created: Apr 2024
+*
+* ©Copyright Cedarville University, its Computer Science faculty, and the
+* authors. All rights reserved.
+********************************************************/
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include "gate.h"
 using namespace std;
 
-
-/*
-This criterion is linked to a Learning OutcomeWire Attributes in Class Spec (Wire.h)
-Expected Attributes (first three are minimal):
-* value (int, char, enum)
-* name (string, char)
-* drives (vector<Gate*>)
-* index (int)
-* history (string, vector)
-
-This criterion is linked to a Learning OutcomeWire Member Functions in Class Spec (Wire.h)
-Expected Functions:
-* Wire (parms defaulted)
-* Setters for value, history, and drives
-* Getters for all attributes
-* void printHistory() const; // useful for printing results
-*/
-
-
+class Gate;
 
 class Wire {
 public:

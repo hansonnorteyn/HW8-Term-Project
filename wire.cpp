@@ -1,8 +1,18 @@
-#include wire.h
+/*********************************************************
+* Summary: This files contains the implementation of the wire class
+*
+* Authors: Daniel Dukundane and Nii Noi 
+* Created: Apr 2024
+*
+* ©Copyright Cedarville University, its Computer Science faculty, and the
+* authors. All rights reserved.
+********************************************************/
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include "gate.h"
+#include "wire.h"
 using namespace std;
 
 Wire::Wire(int value, string name, vector<Gate*> drives, int index, vector<string> history) {
@@ -11,7 +21,7 @@ Wire::Wire(int value, string name, vector<Gate*> drives, int index, vector<strin
     this->drives = drives;
     this->index = index;
     this->history = history;
-}
+};
 
 void Wire::setValue(int value) {
     this->value = value;
