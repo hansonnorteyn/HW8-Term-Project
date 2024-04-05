@@ -11,7 +11,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "gate.h"
 using namespace std;
 
 class Gate;
@@ -19,7 +18,7 @@ class Gate;
 class Wire
 {
 public:
-    Wire(char value = 'X', string name = "", vector<Gate *> drives = {}, int index = 0, vector<string> history = {});
+    Wire(char value = 'X', string name = "", vector<Gate *> drives = vector<Gate *>(), int index = 0, vector<string> history = vector<string>());
     void setValue(int value);
     void setName(string name);
     void setDrives(vector<Gate *> drives);

@@ -49,11 +49,10 @@ Wire *Gate::getOutput() const
 //each should handle 0,1,X
 
 
-char Gate::evaluate() const
+char Gate::evaluate(char inputVal1, char inputVal2) const
 {
-    char input1Value = input1->getValue();
-    char input2Value = input2->getValue();
-    char outputValue = output->getValue();
+    char input1Value = inputVal1;
+    char input2Value = inputVal2;       
 
     if (type == "AND")
     {
@@ -65,58 +64,26 @@ char Gate::evaluate() const
         {
             return '1';
         }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return '0';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return '0';
-        }
+       else{
+              return 'X';
+
+       }
     }
-    else if( type == "OR" )
+else if( type == "OR" )
+{
+    if (input1Value == '1' || input2Value == '1')
     {
-        if (input1Value == '1' || input2Value == '1')
-        {
-            return '1';
-        }
-        else if (input1Value == '0' && input2Value == '0')
-        {
-            return '0';
-        }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return '1';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return '1';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return 'X';
-        }
+        return '1';
     }
+    else if (input1Value == '0' && input2Value == '0')
+    {
+        return '0';
+    }
+    else
+    {
+        return 'X';
+    }
+}
     else if( type == "NOT" )
     {
         if( input1Value == '1' )
@@ -132,148 +99,74 @@ char Gate::evaluate() const
             return 'X';
         }
     }
-    else if( type == "NAND" )
+else if( type == "NAND" )
+{
+    if( input1Value == '0' || input2Value == '0' )
     {
-        if( input1Value == '0' || input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == '1' && input2Value == '1' )
-        {
-            return '0';
-        }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return '1';
-        }
+        return '1';
     }
-    else if( type == "NOR" )
+    else if( input1Value == '1' && input2Value == '1' )
     {
-        if( input1Value == '1' || input2Value == '1' )
-        {
-            return '0';
-        }
-        else if( input1Value == '0' && input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return '1';
-        }
-
+        return '0';
     }
+    else
+    {
+        return 'X';
+    }
+}
+ else if( type == "NOR" )
+{
+    if( input1Value == '1' || input2Value == '1' )
+    {
+        return '0';
+    }
+    else if( input1Value == '0' && input2Value == '0' )
+    {
+        return '1';
+    }
+    else
+    {
+        return 'X';
+    }
+}
     else if( type == "XOR" )
+{
+    if( (input1Value == '1' && input2Value == '0') || (input1Value == '0' && input2Value == '1') )
     {
-        if( input1Value == '1' && input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == '0' && input2Value == '1' )
-        {
-            return '1';
-        }
-        else if( input1Value == '1' && input2Value == '1' )
-        {
-            return '0';
-        }
-        else if( input1Value == '0' && input2Value == '0' )
-        {
-            return '0';
-        }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return 'X';
-        }
+        return '1';
     }
-    else if( type == "XNOR" )
+    else if( input1Value == '1' && input2Value == '1' )
     {
-        if( input1Value == '1' && input2Value == '0' )
-        {
-            return '0';
-        }
-        else if( input1Value == '0' && input2Value == '1' )
-        {
-            return '0';
-        }
-        else if( input1Value == '1' && input2Value == '1' )
-        {
-            return '1';
-        }
-        else if( input1Value == '0' && input2Value == '0' )
-        {
-            return '1';
-        }
-        else if( input1Value == 'X' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '1' )
-        {
-            return 'X';
-        }
-        else if( input1Value == 'X' && input2Value == '0' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '1' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-        else if( input1Value == '0' && input2Value == 'X' )
-        {
-            return 'X';
-        }
-
+        return '0';
     }
+    else if( input1Value == '0' && input2Value == '0' )
+    {
+        return '0';
+    }
+    else
+    {
+        return 'X';
+    }
+}
+else if( type == "XNOR" )
+{
+    if( (input1Value == '1' && input2Value == '0') || (input1Value == '0' && input2Value == '1') )
+    {
+        return '0';
+    }
+    else if( input1Value == '1' && input2Value == '1' )
+    {
+        return '1';
+    }
+    else if( input1Value == '0' && input2Value == '0' )
+    {
+        return '1';
+    }
+    else
+    {
+        return 'X';
+    }
+}
     
 
     

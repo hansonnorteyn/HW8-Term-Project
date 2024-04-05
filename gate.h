@@ -30,6 +30,9 @@ public:
     Wire *getInput1() const;
     Wire *getInput2() const;
     Wire *getOutput() const;
-    char evaluate() const;
 
+    // evaluate should have parameters, and should return a char, the parmeter are name of the input wire, and the value of the input wire
+    //  defualted to X and name to ""
+
+    char evaluate(char inputValue1 = 'X', char inputValue2 = 'X') const;
 };
