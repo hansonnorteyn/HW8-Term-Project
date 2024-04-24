@@ -15,7 +15,7 @@
 #include "wire.h"
 using namespace std;
 
-Wire::Wire(char value, string name, vector<Gate *> drives, int index, vector<string> history)
+Wire::Wire(string name, int index)
 {
     this->value = value;
     this->name = name;

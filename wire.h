@@ -18,7 +18,7 @@ class Gate;
 class Wire
 {
 public:
-    Wire(char value = 'X', string name = "", vector<Gate *> drives = vector<Gate *>(), int index = 0, vector<string> history = vector<string>());
+    Wire(string name = "",int index = 0);
     void setValue(int value);
     void setName(string name);
     void setDrives(vector<Gate *> drives);
